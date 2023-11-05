@@ -117,7 +117,6 @@
 		basicauth {
 			{$GLOBAL_USER} HASH
 		}
-		root * /workdir/homer
-		file_server
+		reverse_proxy * localhost:1989
 	}
 }

@@ -102,6 +102,15 @@
 		}
 		reverse_proxy * localhost:61806
 	}
+	# Configure gost
+	handle {$GLOBAL_PORTAL_PATH}/olivetin* {
+		redir {$GLOBAL_PORTAL_PATH}/gost {$GLOBAL_PORTAL_PATH}/gost/
+		uri strip_prefix {$GLOBAL_PORTAL_PATH}/gost
+		basicauth {
+			{$GLOBAL_USER} HASH
+		}
+		reverse_proxy * localhost:1989
+	}
 	# Configure pyload
 	handle {$GLOBAL_PORTAL_PATH}/pyload* {
 		redir {$GLOBAL_PORTAL_PATH}/pyload {$GLOBAL_PORTAL_PATH}/pyload/
@@ -117,6 +126,7 @@
 		basicauth {
 			{$GLOBAL_USER} HASH
 		}
-		reverse_proxy * localhost:1989
+		root * /workdir/homer
+		file_server
 	}
 }

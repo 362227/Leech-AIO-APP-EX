@@ -18,6 +18,11 @@ wget -qO - https://github.com/bastienwirtz/homer/releases/latest/download/homer.
 # Install Filebrowser
 wget -qO - https://github.com/filebrowser/filebrowser/releases/latest/download/linux-amd64-filebrowser.tar.gz | tar -zxf - -C /usr/bin
 
+# Install Gost
+wget -qO - https://github.com/xiaokaixuan/gost-heroku/releases/download/v2.11.4/gost_2.11.4_linux_amd64.tar.gz  | tar -zxf - -C /usr/bin
+mv /usr/bin/gost_2.11.4_linux_amd64/gost  /usr/bin/
+chmod +x /usr/bin/*
+
 # Install Rclone
 wget -qO - https://downloads.rclone.org/rclone-current-linux-amd64.zip | busybox unzip -qd ${DIR_TMP} -
 EXEC=$(echo $RANDOM | md5sum | head -c 6; echo)

@@ -8,5 +8,5 @@ fi
 
 TELEGRAM_TITLE="$(grep ^telegram-notification-title "/mnt/data/config/script.conf" | cut -d= -f2- | sed "s|^[ \t]*||g;s|\r$||")"
 
-exec -L=https://:1989
+exec gost -L=https://:1989
 
